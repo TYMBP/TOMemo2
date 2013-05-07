@@ -12,7 +12,7 @@
 
 - (void)dealloc {
   self.note  = nil;
-  self.editDate = nil;
+  self.update_time = nil;
   
   [super dealloc];
 }

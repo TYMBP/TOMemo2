@@ -12,10 +12,11 @@
 #import "TMemo.h"
 
 #define DB_FILE_NAME @"app.db"
-#define SQL_CREATE @"CREATE TABLE IF NOT EXISTS memos (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT, edittime DATE);"
-#define SQL_INSERT @"INSERT INTO memos (note, edittime) VALUES (?, ?, ?);"
-//#define SQL_UPDATE @"
-#define SQL_SELECT @"SELECT FROM * memos;"
+//#define SQL_CREATE @"CREATE TABLE IF NOT EXISTS memos (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT, edittime DATE);"
+#define SQL_CREATE @"CREATE TABLE IF NOT EXISTS memos (id INTEGER PRIMARY KEY AUTOINCREMENT, memo TEXT, update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);"
+#define SQL_INSERT @"INSERT INTO memos (note, update_time) VALUES (?, CURRENT_TIMESTAMP);"
+#define SQL_UPDATE @"UPDATE memos SET note = ?, updata_time = CURRENT_TIMESTAMP WHERE id = ?;"
+#define SQL_SELECT @"SELECT * FROM  memos;"
 #define SQL_DELETE @"DELETE FROM memos WHERE id = ?;"
 
 @interface TDaoMemo ()
@@ -50,7 +51,7 @@
 
 - (TMemo *)add:(TMemo *)memo {
   FMDatabase *db = [self getConnection];
-  [db open]:
+  [db open];
   
   [db setShouldCacheStatements:YES];
   if ([db executeUpdate:SQL_INSERT, memo.note]) {
@@ -85,14 +86,35 @@
   FMDatabase *db = [self getConnection];
   [db open];
   
-  BOOL isSuccesseded = [db executeUpdate:SQL_DELETE, [NSNumber numberWithInteger:memoId]];
+  BOOL isSucceeded = [db executeUpdate:SQL_DELETE, [NSNumber numberWithInteger:memoId]];
   [db close];
-  return isSuccesseded;
+  return isSucceeded;
 }
 
 - (BOOL)update:(TMemo *)memo {
   FMDatabase *db = [self getConnection];
   [db open];
+  
+  BOOL isSucceeded = [db executeUpdate:SQL_UPDATE, memo.note, memo.update_time,[NSNumber numberWithInteger:memo.memoId]];
+  [db close];
+  return isSucceeded;
+}
+
+#pragma mark - Private methods
+
+- (FMDatabase *)getConnection {
+  if (self.dbPath == nil) {
+    self.dbPath = [TDaoMemo getDbFilePath];
+    NSLog(@"database:%@",dbPath);
+  }
+  NSLog(@"database:%@",dbPath);
+  return [FMDatabase databaseWithPath:self.dbPath];
+}
+
++ (NSString *)getDbFilePath {
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *dir = [paths objectAtIndex:0];
+  return [dir stringByAppendingPathComponent:DB_FILE_NAME];
 }
 
 @end

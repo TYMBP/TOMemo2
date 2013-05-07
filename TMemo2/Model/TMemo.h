@@ -12,6 +12,6 @@
 
 @property (nonatomic, assign) NSInteger memoId;
 @property (nonatomic, copy) NSString     *note;
-@property (nonatomic, copy) NSDate   *editDate;
+@property (nonatomic, copy) NSDate   *update_time;
 
 @end
