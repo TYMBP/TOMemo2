@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9020D61F1738A18C0004E5C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9020D61E1738A18C0004E5C1 /* UIKit.framework */; };
+		9020D6211738A18C0004E5C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9020D6201738A18C0004E5C1 /* Foundation.framework */; };
+		9020D6231738A18C0004E5C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9020D6221738A18C0004E5C1 /* CoreGraphics.framework */; };
+		9020D6291738A18C0004E5C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9020D6271738A18C0004E5C1 /* InfoPlist.strings */; };
+		9020D62B1738A18C0004E5C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D62A1738A18C0004E5C1 /* main.m */; };
+		9020D62F1738A18C0004E5C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D62E1738A18C0004E5C1 /* AppDelegate.m */; };
+		9020D6311738A18C0004E5C1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9020D6301738A18C0004E5C1 /* Default.png */; };
+		9020D6331738A18C0004E5C1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9020D6321738A18C0004E5C1 /* Default@2x.png */; };
+		9020D6351738A18C0004E5C1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9020D6341738A18C0004E5C1 /* Default-568h@2x.png */; };
+		9020D6421738A1D20004E5C1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D63D1738A1D20004E5C1 /* FMDatabase.m */; };
+		9020D6431738A1D20004E5C1 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D63F1738A1D20004E5C1 /* FMDatabaseAdditions.m */; };
+		9020D6441738A1D20004E5C1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D6411738A1D20004E5C1 /* FMResultSet.m */; };
+		9020D6461738A1EA0004E5C1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9020D6451738A1EA0004E5C1 /* libsqlite3.0.dylib */; };
+		9020D64B1738D69C0004E5C1 /* TMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D64A1738D69C0004E5C1 /* TMemo.m */; };
+		9020D64E1738D6C30004E5C1 /* TDaoMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D64D1738D6C30004E5C1 /* TDaoMemo.m */; };
+		9020D6511738D6EA0004E5C1 /* TMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D6501738D6EA0004E5C1 /* TMemoViewController.m */; };
+		9020D6541738D7180004E5C1 /* TEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020D6531738D7180004E5C1 /* TEditMemoViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9020D61B1738A18C0004E5C1 /* TMemo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMemo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9020D61E1738A18C0004E5C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9020D6201738A18C0004E5C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9020D6221738A18C0004E5C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9020D6261738A18C0004E5C1 /* TMemo2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMemo2-Info.plist"; sourceTree = "<group>"; };
+		9020D6281738A18C0004E5C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9020D62A1738A18C0004E5C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9020D62C1738A18C0004E5C1 /* TMemo2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMemo2-Prefix.pch"; sourceTree = "<group>"; };
+		9020D62D1738A18C0004E5C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9020D62E1738A18C0004E5C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9020D6301738A18C0004E5C1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9020D6321738A18C0004E5C1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9020D6341738A18C0004E5C1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9020D63C1738A1D20004E5C1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		9020D63D1738A1D20004E5C1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		9020D63E1738A1D20004E5C1 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		9020D63F1738A1D20004E5C1 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		9020D6401738A1D20004E5C1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		9020D6411738A1D20004E5C1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		9020D6451738A1EA0004E5C1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		9020D6491738D69C0004E5C1 /* TMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMemo.h; sourceTree = "<group>"; };
+		9020D64A1738D69C0004E5C1 /* TMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMemo.m; sourceTree = "<group>"; };
+		9020D64C1738D6C30004E5C1 /* TDaoMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDaoMemo.h; sourceTree = "<group>"; };
+		9020D64D1738D6C30004E5C1 /* TDaoMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDaoMemo.m; sourceTree = "<group>"; };
+		9020D64F1738D6EA0004E5C1 /* TMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMemoViewController.h; sourceTree = "<group>"; };
+		9020D6501738D6EA0004E5C1 /* TMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMemoViewController.m; sourceTree = "<group>"; };
+		9020D6521738D7180004E5C1 /* TEditMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEditMemoViewController.h; sourceTree = "<group>"; };
+		9020D6531738D7180004E5C1 /* TEditMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEditMemoViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9020D6181738A18C0004E5C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9020D6461738A1EA0004E5C1 /* libsqlite3.0.dylib in Frameworks */,
+				9020D61F1738A18C0004E5C1 /* UIKit.framework in Frameworks */,
+				9020D6211738A18C0004E5C1 /* Foundation.framework in Frameworks */,
+				9020D6231738A18C0004E5C1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9020D6121738A18C0004E5C1 = {
+			isa = PBXGroup;
+			children = (
+				9020D6451738A1EA0004E5C1 /* libsqlite3.0.dylib */,
+				9020D63B1738A1A00004E5C1 /* FMDB */,
+				9020D6241738A18C0004E5C1 /* TMemo2 */,
+				9020D61D1738A18C0004E5C1 /* Frameworks */,
+				9020D61C1738A18C0004E5C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9020D61C1738A18C0004E5C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9020D61B1738A18C0004E5C1 /* TMemo2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9020D61D1738A18C0004E5C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9020D61E1738A18C0004E5C1 /* UIKit.framework */,
+				9020D6201738A18C0004E5C1 /* Foundation.framework */,
+				9020D6221738A18C0004E5C1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9020D6241738A18C0004E5C1 /* TMemo2 */ = {
+			isa = PBXGroup;
+			children = (
+				9020D6471738D5FF0004E5C1 /* Model */,
+				9020D6481738D61D0004E5C1 /* View&Controller */,
+				9020D62D1738A18C0004E5C1 /* AppDelegate.h */,
+				9020D62E1738A18C0004E5C1 /* AppDelegate.m */,
+				9020D6251738A18C0004E5C1 /* Supporting Files */,
+			);
+			path = TMemo2;
+			sourceTree = "<group>";
+		};
+		9020D6251738A18C0004E5C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9020D6261738A18C0004E5C1 /* TMemo2-Info.plist */,
+				9020D6271738A18C0004E5C1 /* InfoPlist.strings */,
+				9020D62A1738A18C0004E5C1 /* main.m */,
+				9020D62C1738A18C0004E5C1 /* TMemo2-Prefix.pch */,
+				9020D6301738A18C0004E5C1 /* Default.png */,
+				9020D6321738A18C0004E5C1 /* Default@2x.png */,
+				9020D6341738A18C0004E5C1 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9020D63B1738A1A00004E5C1 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				9020D63C1738A1D20004E5C1 /* FMDatabase.h */,
+				9020D63D1738A1D20004E5C1 /* FMDatabase.m */,
+				9020D63E1738A1D20004E5C1 /* FMDatabaseAdditions.h */,
+				9020D63F1738A1D20004E5C1 /* FMDatabaseAdditions.m */,
+				9020D6401738A1D20004E5C1 /* FMResultSet.h */,
+				9020D6411738A1D20004E5C1 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			path = TMemo2/FMDB;
+			sourceTree = "<group>";
+		};
+		9020D6471738D5FF0004E5C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9020D6491738D69C0004E5C1 /* TMemo.h */,
+				9020D64A1738D69C0004E5C1 /* TMemo.m */,
+				9020D64C1738D6C30004E5C1 /* TDaoMemo.h */,
+				9020D64D1738D6C30004E5C1 /* TDaoMemo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9020D6481738D61D0004E5C1 /* View&Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9020D64F1738D6EA0004E5C1 /* TMemoViewController.h */,
+				9020D6501738D6EA0004E5C1 /* TMemoViewController.m */,
+				9020D6521738D7180004E5C1 /* TEditMemoViewController.h */,
+				9020D6531738D7180004E5C1 /* TEditMemoViewController.m */,
+			);
+			path = "View&Controller";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9020D61A1738A18C0004E5C1 /* TMemo2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9020D6381738A18C0004E5C1 /* Build configuration list for PBXNativeTarget "TMemo2" */;
+			buildPhases = (
+				9020D6171738A18C0004E5C1 /* Sources */,
+				9020D6181738A18C0004E5C1 /* Frameworks */,
+				9020D6191738A18C0004E5C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TMemo2;
+			productName = TMemo2;
+			productReference = 9020D61B1738A18C0004E5C1 /* TMemo2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9020D6131738A18C0004E5C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = yamada;
+			};
+			buildConfigurationList = 9020D6161738A18C0004E5C1 /* Build configuration list for PBXProject "TMemo2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9020D6121738A18C0004E5C1;
+			productRefGroup = 9020D61C1738A18C0004E5C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9020D61A1738A18C0004E5C1 /* TMemo2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9020D6191738A18C0004E5C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9020D6291738A18C0004E5C1 /* InfoPlist.strings in Resources */,
+				9020D6311738A18C0004E5C1 /* Default.png in Resources */,
+				9020D6331738A18C0004E5C1 /* Default@2x.png in Resources */,
+				9020D6351738A18C0004E5C1 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9020D6171738A18C0004E5C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9020D62B1738A18C0004E5C1 /* main.m in Sources */,
+				9020D62F1738A18C0004E5C1 /* AppDelegate.m in Sources */,
+				9020D6421738A1D20004E5C1 /* FMDatabase.m in Sources */,
+				9020D6431738A1D20004E5C1 /* FMDatabaseAdditions.m in Sources */,
+				9020D6441738A1D20004E5C1 /* FMResultSet.m in Sources */,
+				9020D64B1738D69C0004E5C1 /* TMemo.m in Sources */,
+				9020D64E1738D6C30004E5C1 /* TDaoMemo.m in Sources */,
+				9020D6511738D6EA0004E5C1 /* TMemoViewController.m in Sources */,
+				9020D6541738D7180004E5C1 /* TEditMemoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9020D6271738A18C0004E5C1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9020D6281738A18C0004E5C1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9020D6361738A18C0004E5C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9020D6371738A18C0004E5C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9020D6391738A18C0004E5C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TMemo2/TMemo2-Prefix.pch";
+				INFOPLIST_FILE = "TMemo2/TMemo2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9020D63A1738A18C0004E5C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TMemo2/TMemo2-Prefix.pch";
+				INFOPLIST_FILE = "TMemo2/TMemo2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9020D6161738A18C0004E5C1 /* Build configuration list for PBXProject "TMemo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9020D6361738A18C0004E5C1 /* Debug */,
+				9020D6371738A18C0004E5C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9020D6381738A18C0004E5C1 /* Build configuration list for PBXNativeTarget "TMemo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9020D6391738A18C0004E5C1 /* Debug */,
+				9020D63A1738A18C0004E5C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9020D6131738A18C0004E5C1 /* Project object */;
+}
