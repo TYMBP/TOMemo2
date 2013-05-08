@@ -25,10 +25,14 @@
 {
   [super viewDidLoad];
   
+  self.view.backgroundColor = [UIColor whiteColor];
+  
   UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
   self.navigationItem.rightBarButtonItem = doneButton;
   [doneButton release];
   
+  _mainTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+  [self.view addSubview:_mainTextField];
   _mainTextField.delegate = self;
   
   [_mainTextField addTarget:self action:@selector(mainTextFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
@@ -85,6 +89,7 @@
 }
 
 - (void)cancel:(id)sender {
+  NSLog(@"cancel:push");
   [self.delegate addMemoDidFinish:nil];
 }
 
