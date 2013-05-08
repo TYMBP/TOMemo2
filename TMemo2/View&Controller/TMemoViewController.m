@@ -34,7 +34,10 @@
   self.memos = [[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
   
   NSArray *existMemo = [self.deoMemo memos];
-  
+
+  for (TMemo *memo in existMemo) {
+    [self addNewMemo:memo];
+  }
   self.title = NSLocalizedString(@"BOOK_LIST_TITLE", @"");
   
   self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
@@ -104,13 +107,14 @@
 #pragma mark - EditMemoDelegate methods
 
 - (void)addMemoDidFinish:(TMemo *)newMemo {
+  NSLog(@"newMemo:%@",newMemo);
   if (newMemo) {
     [self addNewMemo:newMemo];
     [self.deoMemo add:newMemo];
     [self.tableView reloadData];
   }
   NSLog(@"addMemoDidFinish:delegate");
-  [self dismissViewControllerAnimated:YES completion:NULL];
+  [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)editMemoDidFinish:(TMemo *)oldMemo newMemo:(TMemo *)newMemo {

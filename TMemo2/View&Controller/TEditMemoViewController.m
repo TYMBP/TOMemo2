@@ -31,7 +31,8 @@
   self.navigationItem.rightBarButtonItem = doneButton;
   [doneButton release];
   
-  _mainTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+  _mainTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 10, 300, 200)];
+  _mainTextField.borderStyle = UIBarStyleBlack;
   [self.view addSubview:_mainTextField];
   _mainTextField.delegate = self;
   
@@ -59,7 +60,7 @@
   [_mainTextField release]; _mainTextField = nil;
 //    [_dateLabel release]; _dateLabel = nil;
   
-  [super dealloc];
+  [super viewDidUnload];
 }
 
 - (void)dealloc {
