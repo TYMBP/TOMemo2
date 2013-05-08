@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   
-  return 0;
+  return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -109,8 +109,8 @@
     [self.deoMemo add:newMemo];
     [self.tableView reloadData];
   }
-  
-[self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+  NSLog(@"addMemoDidFinish:delegate");
+  [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)editMemoDidFinish:(TMemo *)oldMemo newMemo:(TMemo *)newMemo {
@@ -128,6 +128,7 @@
     [self removeMemo:oldMemo];
     [self addNewMemo:newMemo];
     [self.deoMemo update:newMemo];
+    
   }
   
   [self.tableView reloadData];
@@ -136,9 +137,24 @@
 
 #pragma mark - Private methods
 
+- (void)addMemo:(id)sender {
+  TEditMemoViewController *editor = [[TEditMemoViewController alloc] init];
+  editor.delegate = self;
+  editor.title = NSLocalizedString(@"MEMO_EDIT_NEW_TITLE", @"");
+  
+  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:editor];
+  [navi.navigationController presentViewController:navi animated:YES completion:NULL];
+  
+  [self.navigationController pushViewController:editor animated:YES];
+  [editor release];
+  [navi release];
+}
+
 - (void)addNewMemo:(TMemo *)newMemo {
 
 }
+
+
 
 //- (TMemo *)memoAtIndexPath:(NSInteger *)indexPath {
 //  NSArray *memosByList = [self.memos objectForKey:(id)];
