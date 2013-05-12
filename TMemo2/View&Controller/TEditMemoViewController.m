@@ -91,6 +91,7 @@
 #pragma mark - Private medhods
 
 - (void)mainTextFieldEditingChanged:(id)sender {
+  LOG(@"t-yamada:mainTextField...");
   [self checkDone];
 }
 
@@ -114,12 +115,15 @@
   newMemo.memoId = self.memo.memoId;
   newMemo.note = _mainTextField.text;
 //  newMemo.editDate = _dateLabel;
-  NSLog(@"memoId:%d",newMemo.memoId);
-  NSLog(@"note:%@",newMemo.note);
+  LOG(@"t-yamad:sender:%@",sender);
+//  LOG(@"memoId:%d",newMemo.memoId);
+//  LOG(@"note:%@",newMemo.note);
   
   if (self.memo) {
+    LOG(@"t-yamada self.memo:true");
     [self.delegate editMemoDidFinish:self.memo newMemo:newMemo];
   } else {
+    LOG(@"t-yamada self.memo:false");
     [self.delegate addMemoDidFinish:newMemo];
   }
 

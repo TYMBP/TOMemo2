@@ -13,7 +13,7 @@
 @interface TMemoViewController ()
 @property (nonatomic, retain) TDaoMemo *deoMemo;
 @property (nonatomic, retain) NSMutableArray *memos;
-//@property (nonatomic, retain) NSMutableDictionary *memos;
+@property (nonatomic, retain) NSMutableArray *list;
 
 - (void)addMemo:(id)sender;
 - (void)addNewMemo:(TMemo *)newMemo;
@@ -34,6 +34,7 @@
   self.deoMemo = [[[TDaoMemo alloc] init] autorelease];
 //  self.memos = [[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
   self.memos = [[[NSMutableArray alloc] initWithCapacity:0] autorelease];
+  self.list = [[[NSMutableArray alloc] initWithCapacity:0] autorelease];
   
   NSArray *existMemo = [self.deoMemo memos];
 
@@ -90,7 +91,6 @@
 //指定セルの取得
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  LOG(@"indexPath:%@",indexPath);
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   //cell.textLabel.text = [NSString stringWithFormat:@"項目 %d",indexPath.row];
@@ -98,21 +98,26 @@
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
-  LOG(@"memo:%@",[self.memos objectAtIndex:indexPath.row]);
+  //LOG(@"memo:%@",[self.memos objectAtIndex:indexPath.row]);
   cell.textLabel.text = [self.memos objectAtIndex:indexPath.row];
   return cell;
 }
 
 //セルの選択時の処理
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  LOG(@"didSelectRow indexPath:%@",indexPath);
-  TEditMemoViewController *editor2 = [[TEditMemoViewController alloc] init];
-  editor2.delegate = self;
-  editor2.memo = [self.memos objectAtIndex:indexPath.row];
+//  LOG(@"didSelectRow indexPath:%@",indexPath);
+  TEditMemoViewController *editor = [[TEditMemoViewController alloc] init];
+  editor.delegate = self;
+  editor.memo = [self.list objectAtIndex:indexPath.row];
+  LOG(@"editor:%@",editor.memo);
+  //editor.memo = [self.memos objectAtIndex:indexPath.row];
   
-  [self.navigationController pushViewController:editor2 animated:YES];
-  [editor2 release];
+//  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:editor];
+//  [self.navigationController presentViewController:navi animated:YES completion:NULL];
+  [self.navigationController pushViewController:editor animated:YES];
+  [editor release];
 }
+
 
 //- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 //  if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -123,7 +128,7 @@
 #pragma mark - EditMemoDelegate methods
 
 - (void)addMemoDidFinish:(TMemo *)newMemo {
-  LOG(@"newMemo:%@",newMemo);
+  //LOG(@"newMemo:%@",newMemo);
   
   if (newMemo) {
     [self addNewMemo:newMemo];
@@ -159,14 +164,14 @@
 #pragma mark - Private methods
 
 - (void)addMemo:(id)sender {
-  TEditMemoViewController *editor = [[TEditMemoViewController alloc] init];
-  editor.delegate = self;
-  editor.title = NSLocalizedString(@"MEMO_EDIT_NEW_TITLE", @"");
+  TEditMemoViewController *memoInput = [[TEditMemoViewController alloc] init];
+  memoInput.delegate = self;
+  memoInput.title = NSLocalizedString(@"MEMO_EDIT_NEW_TITLE", @"");
   
-  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:editor];
+  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:memoInput];
   [self.navigationController presentViewController:navi animated:YES completion:NULL];
   
-  [editor release];
+  [memoInput release];
   [navi release];
 }
 
@@ -174,9 +179,11 @@
   //LOG(@"addNewMemo:%@",newMemo);
   NSMutableArray *List = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
   [List addObject:newMemo];
+  [self.list addObject:newMemo];
+  
   
   for (TMemo *memo in List) {
-    LOG(@"addNewMemo>memo:%@",memo);
+    //LOG(@"addNewMemo>memo:%@",memo);
     [self.memos addObject:memo.note];
     
   }
