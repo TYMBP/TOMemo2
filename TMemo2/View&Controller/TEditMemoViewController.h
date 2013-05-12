@@ -13,6 +13,9 @@
 @protocol EditMemoDelegate
 - (void)addMemoDidFinish:(TMemo *)newMemo;
 - (void)editMemoDidFinish:(TMemo *)oldMemo newMemo:(TMemo *)newMemo;
+//// delegat test
+//- (void)testDelegate:(id)sender;
+
 @end
 
 @interface TEditMemoViewController : UIViewController<UITextFieldDelegate> {

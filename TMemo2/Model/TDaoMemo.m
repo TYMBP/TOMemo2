@@ -14,7 +14,7 @@
 #define DB_FILE_NAME @"app.db"
 //#define SQL_CREATE @"CREATE TABLE IF NOT EXISTS memos (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT, edittime DATE);"
 #define SQL_CREATE @"CREATE TABLE IF NOT EXISTS memos (id INTEGER PRIMARY KEY AUTOINCREMENT, memo TEXT, update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);"
-#define SQL_INSERT @"INSERT INTO memos (note, update_time) VALUES (?, CURRENT_TIMESTAMP);"
+#define SQL_INSERT @"INSERT INTO memos (memo, update_time) VALUES (?, CURRENT_TIMESTAMP);"
 #define SQL_UPDATE @"UPDATE memos SET note = ?, updata_time = CURRENT_TIMESTAMP WHERE id = ?;"
 #define SQL_SELECT @"SELECT * FROM  memos;"
 #define SQL_DELETE @"DELETE FROM memos WHERE id = ?;"
@@ -50,11 +50,13 @@
 #pragma mark - Public methods
 
 - (TMemo *)add:(TMemo *)memo {
+  LOG(@"add:%@",memo);
   FMDatabase *db = [self getConnection];
   [db open];
   
   [db setShouldCacheStatements:YES];
   if ([db executeUpdate:SQL_INSERT, memo.note]) {
+    LOG(@"add:insert");
     memo.memoId = [db lastInsertRowId];
   } else {
     memo = nil;
@@ -105,9 +107,9 @@
 - (FMDatabase *)getConnection {
   if (self.dbPath == nil) {
     self.dbPath = [TDaoMemo getDbFilePath];
-    NSLog(@"database:%@",dbPath);
+    LOG(@"database:%@",dbPath);
   }
-  NSLog(@"database:%@",dbPath);
+  LOG(@"database:%@",dbPath);
   return [FMDatabase databaseWithPath:self.dbPath];
 }
 

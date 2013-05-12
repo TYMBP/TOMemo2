@@ -12,6 +12,6 @@
 @class DetailViewController;
 
 
-@interface TMemoViewController : UITableViewController<EditMemoDelegate>
+@interface TMemoViewController : UITableViewController<EditMemoDelegate> 
 
 @end

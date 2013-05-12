@@ -14,6 +14,7 @@
 - (void)mainTextFieldEditingChanged:(id)sender;
 - (void)cancel:(id)sender;
 - (void)done:(id)sender;
+//- (void)test:(id)sender;
 
 @end
 
@@ -30,6 +31,14 @@
   UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
   self.navigationItem.rightBarButtonItem = doneButton;
   [doneButton release];
+ 
+//  //delegate test
+//  UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//  button.frame = CGRectMake(10, 300, 100, 20);
+//  [button setTitle:@"delegate" forState:UIControlStateNormal];
+//  [button addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
+//  [self.view addSubview:button];
+//  
   
   _mainTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 10, 300, 200)];
   _mainTextField.borderStyle = UIBarStyleBlack;
@@ -94,11 +103,19 @@
   [self.delegate addMemoDidFinish:nil];
 }
 
+////delegate test
+//- (void)test:(id)sender {
+//  NSLog(@"id:%@",sender);
+//  [self.delegate testDelegate:nil];
+//}
+
 - (void)done:(id)sender {
   TMemo *newMemo = [[[TMemo alloc] init] autorelease];
   newMemo.memoId = self.memo.memoId;
   newMemo.note = _mainTextField.text;
 //  newMemo.editDate = _dateLabel;
+  NSLog(@"memoId:%d",newMemo.memoId);
+  NSLog(@"note:%@",newMemo.note);
   
   if (self.memo) {
     [self.delegate editMemoDidFinish:self.memo newMemo:newMemo];
