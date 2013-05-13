@@ -139,23 +139,11 @@
 }
 
 - (void)editMemoDidFinish:(TMemo *)oldMemo newMemo:(TMemo *)newMemo {
-  LOG(@"editMemoDidFinidh:%@",newMemo);
-  if ([oldMemo.note isEqualToString:newMemo.note]) {
-    NSMutableArray *memoByList = [self.memos objectForKey:newMemo.note];
-    for (TMemo *memo in memoByList) {
-      if (memo.memoId == oldMemo.memoId) {
-        memo.note = newMemo.note;
-        // date
-        [self.deoMemo update:newMemo];
-        break;
-      }
-    }
-  } else {
-//    [self removeOldMemo:oldMemo];
-    [self addNewMemo:newMemo];
+  
+    TMemo *memo = [[[TMemo alloc] init] autorelease];
+    memo.note = newMemo.note;
     [self.deoMemo update:newMemo];
-    
-  }
+//    [self removeOldMemo:oldMemo];
   
   [self.tableView reloadData];
   [self.navigationController popViewControllerAnimated:YES];

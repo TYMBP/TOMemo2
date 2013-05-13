@@ -115,15 +115,15 @@
   newMemo.memoId = self.memo.memoId;
   newMemo.note = _mainTextField.text;
 //  newMemo.editDate = _dateLabel;
-  LOG(@"t-yamad:sender:%@",sender);
+  LOG(@"t-yamad:memoId:%d",self.memo.memoId);
 //  LOG(@"memoId:%d",newMemo.memoId);
 //  LOG(@"note:%@",newMemo.note);
   
   if (self.memo) {
-    LOG(@"t-yamada self.memo:true");
+//    LOG(@"t-yamada self.memo:true");
     [self.delegate editMemoDidFinish:self.memo newMemo:newMemo];
   } else {
-    LOG(@"t-yamada self.memo:false");
+//    LOG(@"t-yamada self.memo:false");
     [self.delegate addMemoDidFinish:newMemo];
   }
 
