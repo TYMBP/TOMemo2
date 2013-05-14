@@ -77,6 +77,7 @@
 
 //行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  LOG(@"reload");
   return self.memos.count;
 }
 //セクションタイトル　使わない
@@ -91,6 +92,7 @@
 //指定セルの取得
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  LOG(@"reload:cell");
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   //cell.textLabel.text = [NSString stringWithFormat:@"項目 %d",indexPath.row];
