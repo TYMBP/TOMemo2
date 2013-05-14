@@ -15,9 +15,9 @@
 //#define SQL_CREATE @"CREATE TABLE IF NOT EXISTS memos (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT, edittime DATE);"
 #define SQL_CREATE @"CREATE TABLE IF NOT EXISTS memos (id INTEGER PRIMARY KEY AUTOINCREMENT, memo TEXT, update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);"
 #define SQL_INSERT @"INSERT INTO memos (memo, update_time) VALUES (?, CURRENT_TIMESTAMP);"
-#define SQL_UPDATE @"UPDATE memos SET memo = ?, update_time = ?, WHERE id = ?;"
+#define SQL_UPDATE @"UPDATE memos SET memo = ? ,update_time = ? WHERE id = ?;"
 //#define SQL_UPDATE @"UPDATE memos SET memo = ?, WHERE id = ?;"
-#define SQL_TIME   @"CURRENT_TIMESTAMP;"
+//#define SQL_TIME   @"CURRENT_TIMESTAMP;"
 #define SQL_SELECT @"SELECT * FROM  memos;"
 #define SQL_DELETE @"DELETE FROM memos WHERE id = ?;"
 
@@ -98,10 +98,12 @@
 - (BOOL)update:(TMemo *)memo {
   FMDatabase *db = [self getConnection];
   [db open];
-  LOG(@"memo.memoId:%d",memo.memoId);
-  LOG(@"memo.memoId:%@",memo.note);
-  LOG(@"sql:%@",SQL_TIME);
-  BOOL isSucceeded = [db executeUpdate:SQL_UPDATE, memo.note, SQL_TIME, [NSNumber numberWithInteger:memo.memoId]];
+//  LOG(@"memo.memoId:%d",memo.memoId);
+//  LOG(@"memo.memoId:%@",memo.note);
+//  LOG(@"sql:%@",SQL_TIME);
+//  BOOL isSucceeded = [db executeUpdate:SQL_UPDATE, memo.note, [NSNumber numberWithInteger:memo.memoId]];
+  NSDate *currentDate = [NSDate date];
+  BOOL isSucceeded = [db executeUpdate:SQL_UPDATE, memo.note, currentDate, [NSNumber numberWithInteger:memo.memoId]];
   [db close];
   return isSucceeded;
 }
