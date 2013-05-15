@@ -141,12 +141,15 @@
 }
 
 - (void)editMemoDidFinish:(TMemo *)oldMemo newMemo:(TMemo *)newMemo {
-  
-    TMemo *memo = [[[TMemo alloc] init] autorelease];
-    memo.note = newMemo.note;
+//    TMemo *memo = [[[TMemo alloc] init] autorelease];
+  if ([oldMemo.note isEqualToString:newMemo.note]) {
+    LOG(@"true");
+  } else {
+    [self.memos replaceObjectAtIndex:newMemo.memoId -1 withObject:newMemo.note];
     [self.deoMemo update:newMemo];
 //    [self removeOldMemo:oldMemo];
-  
+  }
+  LOG(@"true:out");
   [self.tableView reloadData];
   [self.navigationController popViewControllerAnimated:YES];
 }
@@ -175,7 +178,7 @@
   for (TMemo *memo in List) {
     //LOG(@"addNewMemo>memo:%@",memo);
     [self.memos addObject:memo.note];
-    
+    LOG(@"self.memos:%@",self.memos);
   }
 }
 
