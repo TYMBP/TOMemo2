@@ -18,7 +18,7 @@
 - (void)addMemo:(id)sender;
 - (void)addNewMemo:(TMemo *)newMemo;
 //- (TMemo *)memoAtIndexPath:(NSInteger *)indexPath;
-//- (void)removeMemo:(NSIndexPath *)indexPath;
+- (void)removeMemo:(NSIndexPath *)indexPath;
 //- (void)removeOldMemo:(TMemo *)oldMemo;
 
 @end
@@ -77,7 +77,6 @@
 
 //行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  LOG(@"reload");
   return self.memos.count;
 }
 //セクションタイトル　使わない
@@ -92,7 +91,6 @@
 //指定セルの取得
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  LOG(@"reload:cell");
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   //cell.textLabel.text = [NSString stringWithFormat:@"項目 %d",indexPath.row];
@@ -111,7 +109,6 @@
   TEditMemoViewController *editor = [[TEditMemoViewController alloc] init];
   editor.delegate = self;
   editor.memo = [self.list objectAtIndex:indexPath.row];
-  LOG(@"editor:%@",editor.memo);
   //editor.memo = [self.memos objectAtIndex:indexPath.row];
   
 //  UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:editor];
@@ -121,11 +118,12 @@
 }
 
 
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//  if (editingStyle == UITableViewCellEditingStyleDelete) {
-//    [self removeMemo:indexPath];
-//  }
-//}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    //LOG(@"button:test");
+    [self removeMemo:indexPath];
+  }
+}
 
 #pragma mark - EditMemoDelegate methods
 
@@ -146,10 +144,10 @@
     LOG(@"true");
   } else {
     [self.memos replaceObjectAtIndex:newMemo.memoId -1 withObject:newMemo.note];
+    [self.list replaceObjectAtIndex:oldMemo.memoId -1 withObject:newMemo];
     [self.deoMemo update:newMemo];
 //    [self removeOldMemo:oldMemo];
   }
-  LOG(@"true:out");
   [self.tableView reloadData];
   [self.navigationController popViewControllerAnimated:YES];
 }
@@ -178,27 +176,22 @@
   for (TMemo *memo in List) {
     //LOG(@"addNewMemo>memo:%@",memo);
     [self.memos addObject:memo.note];
-    LOG(@"self.memos:%@",self.memos);
+//    LOG(@"self.memos:%@",self.memos);
   }
 }
 
-//- (void)removeMemo:(NSIndexPath *)indexPath {
-//  NSMutableArray *memosByList = [self.memos objectForKey:(id)];
-//  
-//  TMemo *memo = [memosByList objectAtIndex:indexPath.row];
-//  [self.deoMemo remove:memo.memoId];
-//  
-//  [self.tableView beginUpdates];
-//  
-//  if (memosByList.count == 1) {
-//    [self.memos removeObjectForKey:memo.note];
-//    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
-//  } else {
-//    [memosByList removeObjectAtIndex:indexPath.row];
-//    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//  }
-//  [self.tableView endUpdates];
-//}
+- (void)removeMemo:(NSIndexPath *)indexPath {
+  TMemo *memo = [self.list objectAtIndex:indexPath.row];
+  
+  [self.deoMemo remove:memo.memoId];
+  
+  [self.tableView beginUpdates];
+  
+  [self.list removeObjectAtIndex:indexPath.row];
+  [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+  [self.tableView endUpdates];
+}
 
 //- (void)removeOldMemo:(TMemo *)oldMemo {
 //  NSMutableArray *memosByList = [self.memos objectForKey:(id)];

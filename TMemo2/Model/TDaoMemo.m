@@ -17,7 +17,6 @@
 #define SQL_INSERT @"INSERT INTO memos (memo, update_time) VALUES (?, ?);"
 #define SQL_UPDATE @"UPDATE memos SET memo = ? ,update_time = ? WHERE id = ?;"
 //#define SQL_UPDATE @"UPDATE memos SET memo = ?, WHERE id = ?;"
-//#define SQL_TIME   @"CURRENT_TIMESTAMP;"
 #define SQL_SELECT @"SELECT * FROM  memos;"
 #define SQL_DELETE @"DELETE FROM memos WHERE id = ?;"
 
