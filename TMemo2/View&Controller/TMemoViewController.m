@@ -91,6 +91,7 @@
 //指定セルの取得
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  LOG(@"cellForRowAtIndexPath:%@",indexPath);
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   //cell.textLabel.text = [NSString stringWithFormat:@"項目 %d",indexPath.row];
@@ -182,12 +183,14 @@
 
 - (void)removeMemo:(NSIndexPath *)indexPath {
   TMemo *memo = [self.list objectAtIndex:indexPath.row];
-  
+
   [self.deoMemo remove:memo.memoId];
   
   [self.tableView beginUpdates];
-  
+  LOG(@"self.list:%@",self.list);
   [self.list removeObjectAtIndex:indexPath.row];
+  LOG(@"self.list:%@",self.list);
+  LOG(@"NSArray:%@",indexPath);
   [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
   [self.tableView endUpdates];
