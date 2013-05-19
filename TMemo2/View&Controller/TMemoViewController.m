@@ -77,7 +77,7 @@
 
 //行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.memos.count;
+  return self.list.count;
 }
 //セクションタイトル　使わない
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -187,9 +187,7 @@
   [self.deoMemo remove:memo.memoId];
   
   [self.tableView beginUpdates];
-  LOG(@"self.list:%@",self.list);
   [self.list removeObjectAtIndex:indexPath.row];
-  LOG(@"self.list:%@",self.list);
   LOG(@"NSArray:%@",indexPath);
   [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
